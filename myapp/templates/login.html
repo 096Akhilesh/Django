@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+<!DOCTYPE html>
+
+<head>
+    <title>Signup</title>
+    <style>
+        body {
+    margin:0px;
+}
+#header {
+    color:orange;
+    font-size:50px;
+    padding:10px;
+    background-color:#00BFFF;
+    text-align:center;
+}
+input {
+    margin:5px;
+    padding:10px;
+    font-size:25px;
+}
+a {
+    color: inherit;
+    text-decoration:none;
+}
+.button {
+    background-color: #00BFFF;
+    border: none;
+    color: yellow;
+    padding: 10px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#heading1 {
+    color:#00BFFF;
+    font-size:25px;
+    padding:25px;
+    text-align:center;
+}
+#form {
+    width:400px;
+    padding:25px;
+    border: 2px solid #00BFFF;
+    background-color:red;
+    margin-top:10px
+}
+    </style>
+    {% load static %}
+    <script type="text/javascript" src="{% static 'scripts.js' %}"></script>
+    <script>
+    {% if error %}
+        alert("{{error}}");
+    {% endif %}
+    </script>
+</head>
+
+<body>
+
+    <div id="header"> Instaclone</div>
+    <div id="heading1">Welcome to Instaclone.</div>
+    <div align="center" style="margin-top:50px; font-size:20px">
+        <div style="border: 2px solid ; width:600px; padding:35px; background-color:black; color:#00BFFF">
+            new user? <a href="/signup/">Sign up</a>
+        </div>
+    </div><br>
+    <div align="center">
+        <form name ="myform" method="post" id="form" onsubmit="return validateLoginForm()">
+            {% csrf_token %}
+            <label style="font-size:35px; float:left; margin:30px 35px; color:#00BFFF" > <b>Login</b> </label>
+            <input id="username" type="text" name="username" placeholder="Username" value={{ username }}><br>
+            <input id="password" type="password" name="password" placeholder="Password" value={{ password }}><br>
+            <input type="submit" class="button" value="Log In">
+        </form><br>
+    </div>
+</body>
+
+</html>
